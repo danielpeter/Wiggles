@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Seismic station visualizer, ground motion visualization, station monitor, FDSN web service app">
+    <meta name="description" content="iOS app for interactive visualization of seismic station waveform data" />
+    <meta name="title" content="Wiggles App" />
+    <title>Wiggles App</title>
+
+    <!-- responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- stylesheet -->
+    <link href="default.css" rel="stylesheet" type="text/css" />
+
+    <!-- iOS icon -->
+    <link rel="apple-touch-icon" href="./wiggles_icon.png"/>
+    <link rel="icon" sizes="152x152" href="./wiggles_icon.png"/>
+
+    <!-- ko-fi button style -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="imagetext">
+                <div class="logo">
+                <img src="figures/wiggles_icon.png" style="width: 80px; margin-right: 10px;">
+                </div>
+                <a href="/" class="logo">Wiggles</a>
+            </div>
+        </div>
+        <section id="title-section">
+            <div class="container">
+                <div class="imagetext">
+                    <div style="width: 50%; padding: 50px 0 0 0;">
+                        <h1>Near-realtime ground motion of global seismic stations</h1>
+                    </div>
+                    <div class="title-image" style="max-width: 50%">
+                        <img src="figures/wiggles_1.png" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </header>
+
+    <main role="main">
+
+        <section id="description-section">
+            <div class="container">
+                <div style="height: 280px;"></div>
+
+                <p style="text-align: center; color: var(--text-light)">
+                    Available for free on the App Store soon.
+                </p>
+                <!--
+                <div class="app-store-button">
+                    <a href="https://apps.apple.com/app/wiggles/idXXXXXXXXX" target="_blank" rel="noopener noreferrer">
+                        <img src="https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg" alt="Download on the App Store">
+                    </a>
+                </div>
+                -->
+            </div>
+        </section>
+
+        <section id="features-section">
+            <div class="container">
+                <h2>Features</h2>
+                <p style="text-align: center; margin-bottom: 3rem; color: var(--text-light)">
+                    These features will make you a ground motion explorer!
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Near-realtime Data</h3>
+                        <div class="imagetext">
+                            <img src="figures/wiggles_1.png" style="width: 200px; margin-right: 20px;">
+                            <p>Access seismic data from global networks, updated every minute</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Global Stations</h3>
+                        <div class="imagetext">
+                            <img src="figures/wiggles_2.png" style="width: 200px; margin-right: 20px;">
+                            <p>Explore thousands of seismic stations worldwide with detailed metadata</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Interactive Charts</h3>
+                        <div class="imagetext">
+                            <img src="figures/wiggles_3.png" style="width: 200px; margin-right: 20px;">
+                            <p>Pinch, zoom and pan through high-resolution seismic waveforms</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Earthquake Tracking</h3>
+                        <div class="imagetext">
+                            <img src="figures/wiggles_6.png" style="width: 200px; margin-right: 20px;">
+                            <p>List current earthquake events with magnitude, depth and location data</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Custom Analysis</h3>
+                        <div class="imagetext">
+                            <img src="figures/wiggles_4.png" style="width: 200px; margin-right: 20px;">
+                            <p>Adjustable filters, spectrograms and analysis tools</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Educational Tools</h3>
+                        <div class="imagetext">
+                            <img src="figures/wiggles_8.png" style="width: 200px; margin-right: 20px;">
+                            <p>Learn seismology by exploring ground motion near you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <hr>
+            <!--
+            <div class="legal-links">
+                <a href="/">Home</a>
+                <a href="mailto:support@wigglesapp.com">Contact</a>
+            </div>
+            -->
+            <p style="margin: 1rem 0; color: var(--text-light); font-size: 0.9rem;">
+                &copy; 2025 Wiggles.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ko-fi floating button -->
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('daniel_peter', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Tip Me',
+        'floating-chat.donateButton.background-color': '#1323a1',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
+
+</body>
+</html>
