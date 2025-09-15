@@ -3,11 +3,11 @@
 <!-- ![wiggles](gh-pages/figures/wiggles_1.png "Wiggles screenshot") -->
 
 <div style="display: flex; align-items: top;">
-  <img src="gh-pages/figures/wiggles_4.png" alt="Wiggles screenshot" style="width: 200px; margin-right: 20px;">
+  <img src="gh-pages/figures/wiggles_3dscreenshot.jpg" alt="Wiggles screenshot" style="width: 200px; margin-right: 20px;">
   <p>
-Wiggles visualizes ground motion recorded by seismic stations.
-The App is a native iOS and iPadOS application built entirely with Swift, designed for near-realtime seismic waveform visualization and analysis. It provides researchers, educators, and seismic enthusiasts with direct access to global seismic data through FDSN web services, offering an intuitive way to explore detailed station information, earthquake events, and interactive waveform charts.<br><br>
-Select your preferred data source and station networks - from global to local arrays - accessing one of the highest-quality geophysical measurement systems ever built. These devices typically measure motions at nanometer scale, the size of molecules.<br><br>
+Wiggles visualizes Earth's ground motion recorded by seismic stations.
+The App is a native iOS application built entirely with Swift, designed for near-realtime seismic waveform visualization and analysis. It provides researchers, educators, and seismic enthusiasts with direct access to global seismic data through public FDSN web services, offering an intuitive way to explore detailed station information, earthquake events, and interactive waveform charts.<br><br>
+Select your preferred data source and station networks - from global to local arrays - accessing one of the highest-quality geophysical measurement systems ever built. These sensors can detect motions at nanometer scale, the size of molecules.<br><br>
 If you're using this tool for research or education, feel free to reach out with suggestions!
   </p>
 </div>
@@ -20,7 +20,7 @@ If you're using this tool for research or education, feel free to reach out with
 
 ### Idea
 
-My main curiosity was to find out how current ground motion looks like around where I live. Thus, I was trying to see if there is a way to find a nearby seismometer of the national seismic network and get a visual on its waveform recording on my phone. Something like a weather app, but for seismics. The best I could find was a webpage of the [IRIS station monitor](https://www.iris.edu/app/station_monitor/). And, bummer, the mobile app installation doesn't work for my region. So, I set out to code my own little tool, getting some experience with Swift programming along the way. The result is Wiggles, an iOS and iPadOS app, now available for free on the App Store :)
+My main curiosity was to find out how current ground motion looks like around where I live. Thus, I was trying to see if there is a way to find a nearby seismometer of the national seismic network and get a visual on its waveform recording on my phone. Something like a weather app, but for seismics. The best I could find was a webpage of the [IRIS station monitor](https://www.iris.edu/app/station_monitor/). And, bummer, the mobile app installation doesn't work for my region. So, I set out to code my own little tool, getting some experience with Swift programming along the way. The result is Wiggles, an iOS app, available for free on the App Store :)
 
 This endavour wouldn't have been possible without the openly accessible [FDSN web services](https://www.fdsn.org). All these FDSN servers provide public access to high-quality seismometer informations, waveform data as well as seismic events -  pretty incredible.
 
