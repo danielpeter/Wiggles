@@ -93,7 +93,7 @@ header {
     position: absolute;
     right: 0;
     padding: 10px 20px;
-    top: -80px;
+    top: -60px;
     /*transform: translateY(-50%);*/
     width: 300px;
     z-index: 3;
@@ -189,7 +189,7 @@ hr {
 
 .feature-item {
     color: var(--text-light);
-    padding: 2rem;
+    padding: 2rem 5px;
     background: var(--features-bgcolor);
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
