@@ -1,12 +1,12 @@
 # Wiggles - your seismic station App
 
-<!-- ![wiggles](gh-pages/figures/wiggles_1.png "Wiggles screenshot") -->
+<!-- ![wiggles](figures/wiggles_1.png "Wiggles screenshot") -->
 
 <div style="display: flex; align-items: top;">
-  <img src="gh-pages/figures/wiggles_1.png" alt="Wiggles screenshot - globe" style="width: 200px; margin-right: 20px;">
-  <img src="gh-pages/figures/wiggles_2.png" alt="Wiggles screenshot - stations" style="width: 200px; margin-right: 20px;">
-  <img src="gh-pages/figures/wiggles_3.png" alt="Wiggles screenshot - spectrogram" style="width: 200px; margin-right: 20px;">
-  <img src="gh-pages/figures/wiggles_4.png" alt="Wiggles screenshot - bandpass filter" style="width: 200px; margin-right: 20px;">
+  <img src="figures/wiggles_1.png" alt="Wiggles screenshot - globe" style="width: 200px; margin-right: 20px;">
+  <img src="figures/wiggles_2.png" alt="Wiggles screenshot - stations" style="width: 200px; margin-right: 20px;">
+  <img src="figures/wiggles_3.png" alt="Wiggles screenshot - spectrogram" style="width: 200px; margin-right: 20px;">
+  <img src="figures/wiggles_4.png" alt="Wiggles screenshot - bandpass filter" style="width: 200px; margin-right: 20px;">
   <p>
 Wiggles visualizes Earth's ground motion recorded by seismic stations.
 The App is a native iOS application built entirely with Swift, designed for near-realtime seismic waveform visualization and analysis. It provides researchers, educators, and seismic enthusiasts with direct access to global seismic data through public FDSN web services, offering an intuitive way to explore detailed station information, earthquake events, and interactive waveform charts.<br><br>
