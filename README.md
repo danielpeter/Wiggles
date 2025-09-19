@@ -38,17 +38,20 @@ This endavour wouldn't have been possible without the openly accessible [FDSN we
 
   Currently supported FDSN web clients are:
 
-    | Client | Center |
-    |--------|--------|
-    | IRIS   | IRIS Data Management Centre |
-    | ETH    | Swiss ETH Data Centre |
-    | GEOFON | German GEOFON (GEOFOrschungsNetz) program |
-    | INGV   | Italian INGV Data Centre |
-    | NCEDC  | Northern California Earthquake Data Center |
-    | SCEDC  | Southern California Earthquake Data Center |
-    | NOA    | Greece National Observatory of Athens (NOA) |
-    | ORFEUS | Observatories & Research Facilities for European Seismology (ORFEUS) |
-    | RESIF  | French RESIF (Reseau sismologique & geodesique francais) |
+    | Client  | Center |
+    |---------|--------|
+    | IRIS    | IRIS Data Management Centre |
+    | AusPass | Australian Passive Seismic Server |
+    | ETH     | Swiss ETH Data Centre |
+    | GEOFON  | German GEOFON (GEOFOrschungsNetz) program |
+    | GeoNet-NRT | New Zealand National Seismograph Network Server (near-realtime server) |
+    | INGV    | Italian INGV Data Centre |
+    | NCEDC   | Northern California Earthquake Data Center |
+    | SCEDC   | Southern California Earthquake Data Center |
+    | NOA     | Greece National Observatory of Athens (NOA) |
+    | NRCAN   | Canadian National Data Centre (CNDC) |
+    | ORFEUS  | Observatories & Research Facilities for European Seismology (ORFEUS) |
+    | RESIF   | French RESIF (Reseau sismologique & geodesique francais) |
 
   Each client comes with a set of predefined networks to select from, giving you access to global and local seismic stations.
 
@@ -105,6 +108,7 @@ This endavour wouldn't have been possible without the openly accessible [FDSN we
     | BK | Berkeley Digital Seismic Network (BDSN) |
     | CH | Switzerland National Seismic Network |
     | CI | Southern California Seismic Network (SCSN) |
+    | CN | Canadian National Seismograph Network |
     | C4 | CERN Seismic Network |
     | DK | Danish National Seismic Network |
     | FR | France National Seismic Network (RESIF) |
@@ -122,12 +126,15 @@ This endavour wouldn't have been possible without the openly accessible [FDSN we
     | IV | Italy National Seismic Network |
     | JP | Japan Meteorological Agency Seismic Network |
     | KO | Kandilli Observatory & Earthquake Research Institute (KOERI) |
+    | M8 | Australian Semi-Permanent Support Network (MATE) |
     | MN | Mediterranean Very Broadband Seismographic Network (MedNet) |
     | MX | Mexican National Seismic Network |
     | NC | Northern California Seismic Network (NCSN) |
     | NL | Netherlands National Seismic Network |
     | NP | United States National Strong-Motion Network |
+    | NZ | New Zealand National Seismograph Network |
     | OE | Austria National Seismic Network |
+    | S1 | Australian Seismometers in Schools (AUSiS) |
     | TU | National Seismic Network of Turkey (DDA) |
     | TW | Taiwan National Seismic Network |
     | US | United States National Seismic Network |
