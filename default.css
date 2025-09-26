@@ -224,6 +224,16 @@ footer a:hover {
     color: var(--primary);
 }
 
+footer a svg {
+    position: relative;
+    top: 4px;
+}
+
+footer a:hover svg {
+    fill: var(--primary);
+}
+
+
 .legal-links {
     margin-top: 1.5rem;
 }
