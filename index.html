@@ -43,14 +43,19 @@
                 </div>
             </div>
         </section>
-        
+
     </header>
 
     <main role="main">
+        <div id="scrollContainer">
+            <canvas id="canvasBackground"></canvas>
+        </div>
 
         <section id="description-section">
             <div class="container">
+                <!--
                 <div style="height: 140px;"></div>
+                -->
 
                 <p style="text-align: center; color: var(--text-light)">
                     Available for free on the App Store.
@@ -75,42 +80,66 @@
                     <div class="feature-item">
                         <h3>Near-realtime Data</h3>
                         <div class="imagetext">
-                            <img src="figures/wiggles_1.png" style="width: 200px; margin-right: 20px;">
+                            <img id="feature-img-1"
+                                 src="figures/wiggles_1.png"
+                                 data-static="figures/wiggles_1.png"
+                                 data-gif="figures/wiggles_1.gif"
+                                 style="width: 200px; margin-right: 20px;">
                             <p>Access seismic data from global networks, updated every minute</p>
                         </div>
                     </div>
                     <div class="feature-item">
                         <h3>Global Stations</h3>
                         <div class="imagetext">
-                            <img src="figures/wiggles_2.png" style="width: 200px; margin-right: 20px;">
+                            <img id="feature-img-2"
+                                 src="figures/wiggles_2.png"
+                                 data-static="figures/wiggles_2.png"
+                                 data-gif="figures/wiggles_2.gif"
+                                 style="width: 200px; margin-right: 20px;">
                             <p>Explore thousands of seismic stations worldwide with detailed metadata</p>
                         </div>
                     </div>
                     <div class="feature-item">
                         <h3>Interactive Charts</h3>
                         <div class="imagetext">
-                            <img src="figures/wiggles_3.png" style="width: 200px; margin-right: 20px;">
+                            <img id="feature-img-3"
+                                 src="figures/wiggles_3.png"
+                                 data-static="figures/wiggles_3.png"
+                                 data-gif="figures/wiggles_3.gif"
+                                 style="width: 200px; margin-right: 20px;">
                             <p>Pinch, zoom (single-tap to select zoom window, double-tap to reset) and pan through high-resolution seismic waveforms</p>
                         </div>
                     </div>
                     <div class="feature-item">
                         <h3>Earthquake Tracking</h3>
                         <div class="imagetext">
-                            <img src="figures/wiggles_6.png" style="width: 200px; margin-right: 20px;">
+                            <img id="feature-img-6"
+                                 src="figures/wiggles_6.png"
+                                 data-static="figures/wiggles_6.png"
+                                 data-gif="figures/wiggles_6.gif"
+                                 style="width: 200px; margin-right: 20px;">
                             <p>List current earthquake events with magnitude, depth and location data</p>
                         </div>
                     </div>
                     <div class="feature-item">
                         <h3>Custom Analysis</h3>
                         <div class="imagetext">
-                            <img src="figures/wiggles_4.png" style="width: 200px; margin-right: 20px;">
+                            <img id="feature-img-4"
+                                 src="figures/wiggles_4.png"
+                                 data-static="figures/wiggles_4.png"
+                                 data-gif="figures/wiggles_4.gif"
+                                 style="width: 200px; margin-right: 20px;">
                             <p>Adjustable filters, spectrograms and analysis tools</p>
                         </div>
                     </div>
                     <div class="feature-item">
                         <h3>Educational Tool</h3>
                         <div class="imagetext">
-                            <img src="figures/wiggles_8.png" style="width: 200px; margin-right: 20px;">
+                            <img id="feature-img-8"
+                                 src="figures/wiggles_8.png"
+                                 data-static="figures/wiggles_8.png"
+                                 data-gif="figures/wiggles_8.gif"
+                                 style="width: 200px; margin-right: 20px;">
                             <p>Learn seismology by exploring ground motion near you</p>
                         </div>
                     </div>
@@ -147,5 +176,206 @@
       });
     </script>
 
+    <!-- seismic trace animations -->
+    <script>
+        // Global variables (set during initialization)
+        let canvas, ctx;
+
+        // image scroll
+        let image = new Image();
+        let scrollX = 0;
+        const scrollSpeed = 0.5; // Pixels per frame
+        let isImageLoaded = false;
+
+        // traces
+        let traces = [];
+        const numberOfTraces = 5;
+        const lineWidth = 1.5;
+        const amplitude = 20; // Max displacement from center
+        const frequency = 0.025; // How "wiggly" the traces are
+        const speed = 1.5; // How fast they move
+        let time = 0;
+
+        // --- Configuration and Initialization ---
+        function initializeCanvas() {
+            canvas = document.getElementById('canvasBackground');
+            ctx = canvas.getContext('2d');
+
+            // Use the dimensions of the parent container for a responsive canvas
+            const container = document.getElementById('scrollContainer');
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+
+            // Load the image
+            image.src = 'figures/station_book.png';
+
+            image.onload = () => {
+                isImageLoaded = true;
+                // Start the animation only once the image is ready
+                animate();
+            };
+
+            image.onerror = () => {
+                console.error("Failed to load image. Check the image URL.");
+                // Display an error message on the canvas itself?
+                ctx.fillStyle = '#CCC';
+                //ctx.font = '24px Inter';
+                //ctx.textAlign = 'center';
+                //ctx.fillText("Error loading image.", canvas.width / 2, canvas.height / 2);
+            };
+
+            // traces
+            initializeTraces();
+        }
+
+        function initializeTraces() {
+            traces = [];
+            for (let i = 0; i < numberOfTraces; i++) {
+                const factor = i / (numberOfTraces-1); // in range [0,1]
+                traces.push({
+                    yOffset: 105, // Initial vertical position
+                    phaseOffset: 0, // factor * Math.PI, // Math.random() * Math.PI * 2, // Random phase for independent wiggles
+                    colorHue: (0.55 + factor * 0.2) * 360, // For a vivid color range
+                    opacity: 0.4 + factor * 0.4,
+                    amplitude: amplitude + factor * amplitude
+                });
+            }
+        }
+
+        // Handle resizing
+        function resizeCanvas() {
+            if (canvas) {
+                const container = document.getElementById('scrollContainer');
+                canvas.width = container.clientWidth;
+                canvas.height = container.clientHeight;
+            }
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        document.addEventListener('DOMContentLoaded', initializeCanvas);
+
+        // --- Animation Loop ---
+        function drawLoopingBackground() {
+            if (!isImageLoaded) return;
+
+            // Clear the canvas (optional, but good practice)
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Decrease the scroll position
+            scrollX -= scrollSpeed;
+
+            // scaled to fit the canvas height
+            const scaleFactor = canvas.height / image.height;
+            const scaledWidth = image.width * scaleFactor;
+
+            // Check for the loop condition
+            if (scrollX <= -scaledWidth) {
+                scrollX = 0;
+            }
+
+            // Draw the first image section
+            ctx.drawImage(
+                image,
+                0, 0, image.width, image.height, // Source rectangle
+                scrollX, 0, scaledWidth, canvas.height // Destination rectangle
+            );
+
+            // Draw the second image section immediately following the first
+            ctx.drawImage(
+                image,
+                0, 0, image.width, image.height, // Source rectangle
+                scrollX + scaledWidth, 0, scaledWidth, canvas.height // Destination rectangle
+            );
+        }
+
+        function drawTraces() {
+            // Use a transparent fill to create a fading trail effect
+            // Using a slightly darker transparent background to make vivid colors pop
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Darker transparent to allow colors to be more vivid
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < numberOfTraces; i++) {
+                const trace = traces[i];
+                ctx.beginPath();
+                // Starting point with a base wiggle
+                ctx.moveTo(0, trace.yOffset + Math.sin(trace.phaseOffset + time * frequency) * amplitude);
+
+                for (let x = 0; x < canvas.width; x++) {
+                    // Combine base wiggle with another sine wave for more complexity
+                    const y = trace.yOffset +
+                              //Math.cos(x * 0.008 * Math.PI) * (
+                              1.0 * (
+                                Math.sin(x * 0.01 + trace.phaseOffset + time * frequency) * trace.amplitude * 0.8 +
+                                Math.sin(x * 0.02 + time * frequency * 1.5) * trace.amplitude * 0.2 // second component for more "seismic" feel
+                              );
+                    ctx.lineTo(x, y);
+                }
+
+                // Fancy animated coloring based on hue
+                //ctx.strokeStyle = `hsla(${trace.colorHue}, 100%, 70%, 0.5)`; // More vivid saturation/lightness, slightly higher opacity
+                ctx.strokeStyle = `rgba(200, 200, 200, ${trace.opacity})`;
+                ctx.lineWidth = lineWidth;
+                ctx.stroke();
+            }
+
+            time += speed;
+        }
+
+        function animate() {
+            drawLoopingBackground();
+            drawTraces();
+            // Request the next frame for smooth animation
+            window.requestAnimationFrame(animate);
+        }
+    </script>
+
+    <script>
+        // --- for Image Hover Effects ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select all images that have a 'data-gif' attribute
+            const featureImages = document.querySelectorAll('img[data-gif]');
+
+            featureImages.forEach(img => {
+                // Preload the GIF for a smoother transition
+                const gifPreload = new Image();
+                gifPreload.src = img.getAttribute('data-gif');
+
+                // Mouse Over: Change the src to the GIF
+                img.addEventListener('mouseover', function() {
+                    // Get the GIF path from the data attribute
+                    const gifSrc = this.getAttribute('data-gif');
+                    if (gifSrc) {
+                        this.src = gifSrc;
+                    }
+                });
+
+                // Mouse Out: Change the src back to the static image
+                img.addEventListener('mouseout', function() {
+                    // Get the static image path from the data attribute
+                    const staticSrc = this.getAttribute('data-static');
+                    if (staticSrc) {
+                        this.src = staticSrc;
+                    }
+                });
+
+                img.addEventListener('click', function(event) {
+                    // Prevent the tap from navigating (if the image were wrapped in a link)
+                    event.preventDefault();
+
+                    const staticSrc = this.getAttribute('data-static');
+                    const gifSrc = this.getAttribute('data-gif');
+
+                    // Check the current source and toggle
+                    if (this.src.includes(staticSrc)) {
+                        // Currently static, switch to GIF
+                        this.src = gifSrc;
+                    } else {
+                        // Currently GIF, switch back to static
+                        this.src = staticSrc;
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
