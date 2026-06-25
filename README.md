@@ -134,7 +134,7 @@ This endavour wouldn't have been possible without the openly accessible [FDSN we
     | MX | Mexican National Seismic Network |
     | NC | Northern California Seismic Network (NCSN) |
     | NL | Netherlands National Seismic Network |
-    | N0 | NORSAR Station Network |
+    | NO | NORSAR Station Network |
     | NP | United States National Strong-Motion Network |
     | NZ | New Zealand National Seismograph Network |
     | OE | Austria National Seismic Network |
