@@ -52,9 +52,12 @@ This endavour wouldn't have been possible without the openly accessible [FDSN we
     | NRCAN   | Canadian National Data Centre (CNDC) |
     | ORFEUS  | Observatories & Research Facilities for European Seismology (ORFEUS) |
     | RESIF   | French RESIF (Reseau sismologique & geodesique francais) |
+    | UiB-NORSAR | University of Bergen - NORSAR |
 
   Each client comes with a set of predefined networks to select from, giving you access to global and local seismic stations.
-
+  And just in case, you can add your own custom FDSN web server setting as well.
+  
+  
 - **Location-Aware Station Discovery**:
   Easily locate nearby seismic stations using your device's geographical position, facilitating on-the-go exploration of local seismic activity.
   Allow the Wiggles App to access your location and you can search for the closest seismic stations around you.
@@ -131,6 +134,7 @@ This endavour wouldn't have been possible without the openly accessible [FDSN we
     | MX | Mexican National Seismic Network |
     | NC | Northern California Seismic Network (NCSN) |
     | NL | Netherlands National Seismic Network |
+    | N0 | NORSAR Station Network |
     | NP | United States National Strong-Motion Network |
     | NZ | New Zealand National Seismograph Network |
     | OE | Austria National Seismic Network |
@@ -159,4 +163,4 @@ This endavour wouldn't have been possible without the openly accessible [FDSN we
   Add AI for detecting earthquakes, blasts, landslides, storms, and other exotic signals.
 
 
-\- daniel, September 2025
+\- daniel, June 2026
